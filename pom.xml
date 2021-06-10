@@ -19,7 +19,7 @@
   <scm>
     <connection>scm:git:https://github.com/ni920/CICD-Test.git</connection>
     <url>http://github.com/ni920/CICD-Test</url>
-    <developerConnection>scm:git:https://github.com/repplix/MavenTest.git</developerConnection>
+    <developerConnection>scm:git:https://github.com/ni920/CICD-Test.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
   <properties>
