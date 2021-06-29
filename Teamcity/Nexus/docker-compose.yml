@@ -1,0 +1,79 @@
+version: "3.7"
+
+services:
+
+    TeamcityServer:
+        image: jetbrains/teamcity-server:latest
+        restart: always
+        ports:
+            - 8111:8111
+        volumes:
+            - teamcity-data-volume:/data/teamcity_server/datadir
+            - teamcity-logs-volume:/opt/teamcity/logs
+            - teamcity-temp-volume:/opt/teamcity/temp
+        networks:
+            - DevNet
+
+    TeamcityAgent:
+        image: jetbrains/teamcity-agent:latest
+        restart: always
+        environment:
+            SERVER_URL: http://TeamcityServer:8111
+        volumes:
+            - teamcity-agent-conf-volume:/data/teamcity_agent/conf
+            - teamcity-agent-jdk-volume:/opt/java/external_jdk
+            - teamcity-agent-work-volume:/opt/buildagent/work
+            - teamcity-agent-tools-volume:/opt/buildagent/tools
+            - teamcity-agent-plugins-volume:/opt/buildagent/plugins
+            - teamcity-agent-system-volume:/opt/buildagent/system
+            - teamcity-agent-temp-volume:/opt/buildagent/temp
+            - teamcity-agent-logs-volume:/opt/buildagent/logs
+            - teamcity-agent-var-volume:/var/lib/docker
+        networks:
+            - DevNet
+
+    TeamcityDB:
+        image: postgres:latest
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: admin
+            POSTGRES_USER: postgres
+        volumes:
+            - teamcity-db-volume:/var/lib/postgresql/data
+        networks:
+            - DevNet
+
+    Nexus:
+        image: sonatype/nexus3
+        restart: always
+        ports:
+            - 8081:8081
+            - 10001:10001
+            - 10011:10011
+            - 10021:10021
+            - 10031:10031
+        volumes: 
+            - nexus-volume:/nexus-data
+        networks: 
+            - DevNet
+
+networks:
+  DevNet:
+    ipam:
+      driver: default
+
+volumes:
+    teamcity-db-volume:
+    teamcity-data-volume:
+    teamcity-logs-volume:
+    teamcity-temp-volume:
+    teamcity-agent-jdk-volume:
+    teamcity-agent-conf-volume:
+    teamcity-agent-work-volume:
+    teamcity-agent-tools-volume:
+    teamcity-agent-plugins-volume:
+    teamcity-agent-system-volume:
+    teamcity-agent-temp-volume:
+    teamcity-agent-logs-volume:
+    teamcity-agent-var-volume:
+    nexus-volume:

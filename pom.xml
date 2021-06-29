@@ -97,13 +97,13 @@
             <image>adoptopenjdk/openjdk11:jre-11.0.8_10-alpine</image>
           </from>
           <to>
-            <image>172.17.0.4:10001/repository/tiho/${project.groupId}/${project.artifactId}:${project.version}</image>
+            <image>localhost:10001/repository/cicdtest/${project.groupId}/${project.artifactId}:${project.version}</image>
             <tags>
               <tag>latest</tag>
             </tags>
             <auth>
-              <username>tihostw</username>
-              <password>tihostw</password>
+              <username>admin</username>
+              <password>admin</password>
             </auth>
           </to>
           <container>
