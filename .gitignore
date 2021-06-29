@@ -19,3 +19,10 @@ target/surefire-reports/com.mycompany.app.AppTest.txt
 target/surefire-reports/TEST-com.mycompany.app.AppTest.xml
 target/test-classes/com/mycompany/app/AppTest.class
 my-app.iml
+target/jib-image.json
+target/jib-image.id
+target/jib-image.digest
+target/jib-cache/selectors/d1e8d804244df645f096619b64079a901efdba44895d9074d5f60db88539fb8f
+target/jib-cache/selectors/9ee3c07d7ef84941a8b6f2872fa83bcdb36c7a208d4769fa2ebd2e69cf423e15
+target/jib-cache/layers/631a64b0a84a348f74cd42fd74ac25e8b48a010e03eb68029cb8f777186598b1/22cd0ff6c504a8441f381817322a2a8ef1c1152f0b7903c4a457b86247b80245
+target/jib-cache/layers/47a63cc7810d53d551c2219722ffe59d3d4af6cee6cbcf646b04c5f7dca71063/14485e408308347883bb6b0798d44d46e0ef1558ad6a41ffa2848b80d91a0815
